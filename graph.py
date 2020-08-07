@@ -186,4 +186,7 @@ def main (scr, path):
 			show(pad, win.floor, win.ceil, win.auto) 
 
 if __name__ == "__main__":
-	cs.wrapper(main, sys.argv[1])
+	try:
+		cs.wrapper(main, sys.argv[1])
+	except:
+		print("fault: missed path")
