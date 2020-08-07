@@ -17,7 +17,7 @@ def read (path):
 
 	handler.close()
 
-# reinitianization	
+# reinitialization	
 def reinit (scr):
 	global win
 	
@@ -122,7 +122,7 @@ def cmd (scr):
 						win.mes = "floor changed"
 					elif cmds[1] == "ceil":
 						win.ceil = int(cmds[2])
-						win.mes = "ceil changed"
+						win.mes = "ceiling changed"
 					elif cmds[1] == "autosize":
 						win.auto ^= True
 						win.mes = "autosize switched"
