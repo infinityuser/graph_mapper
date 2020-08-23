@@ -5,6 +5,7 @@ import sys
 # local data
 vals = []
 win = app()
+status = 1
 
 # read given file by path
 def read (path):
@@ -90,6 +91,7 @@ def show (scr, minv, maxv, switch):
 def cmd (scr):
 	global vals
 	global win
+	global status 
 
 	reinit(scr)
 	win.mes = " " * (win.wei - 1)
@@ -113,7 +115,7 @@ def cmd (scr):
 				if cmds[0] == "set":
 					if cmds[1] == "shift":
 						win.shift = int(cmds[2])
-						win.mes = "window postion changed"
+						win.mes = "window position changed"
 					elif cmds[1] == "zoom":
 						win.zoom = int(cmds[2])
 						win.mes = "zoom changed"
@@ -125,7 +127,7 @@ def cmd (scr):
 						win.mes = "ceiling changed"
 					elif cmds[1] == "autosize":
 						win.auto ^= True
-						win.mes = "autosize switched"
+						win.mes = "autozoom switched"
 					else:
 						win.mes = "parameter doesn't found"
 				elif cmds[0] == "get":
@@ -147,8 +149,7 @@ def cmd (scr):
 				elif cmds[0] == "update":
 					read(win.path) 
 				elif cmds[0] == "q":
-					win.status = 0
-					exit() 
+					status = 0
 				else: 
 					win.mes = "option doesn't exist"
 
@@ -174,7 +175,7 @@ def main (scr, path):
 	pad = cs.newwin(win.hei - 1, win.wei, 0, 0) 
 	read(win.path)
 	
-	while win.status:
+	while status:
 		reinit(scr)
 		key = scr.getkey()
 

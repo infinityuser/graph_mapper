@@ -2,16 +2,15 @@ import curses as cs
 
 class app:
 	# session configuration
-	status = 1
 	shift = 0
-	zoom = 4000
+	zoom = 1000
 	hei = 0
 	wei = 0
 	ceil = 100
 	floor = 0
 	mes = ""
 	path = ""
-	auto = False
+	auto = True
 
 	# chart theme 
 	fillend = "▄"
